@@ -15,7 +15,7 @@ window.onload = function(){
 
       var response = JSON.parse(this.responseText);
 
-      var a = response.data;
+      var a = response.stars;
 
       var lis = String.bind(children.outerHTML, a);
 

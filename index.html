@@ -6,13 +6,9 @@
     <script src="main.js"></script>
   </head>
   <body>
-      <h2>Realizadas</h2>
-      <ul id="teste" class="repeater" data-source="http://api.vexsoft.com.br/empresa/VXS111/vistorias">
-          <li>{{id}} : {{vistoriador}}</li>
-      </ul>
-      <h2>Nao exportadas</h2>
-      <ul id="teste1" class="repeater" data-source="http://api.vexsoft.com.br/empresa/VXS111/vistorias/naoexportadas">
-          <li>{{id}} : {{vistoriador}}</li>
+      <h2>Stars</h2>
+      <ul id="teste" class="repeater" data-source="http://api.redtube.com/?data=redtube.Stars.getStarDetailedList&output=json">
+          <li><a href="{{star_url}}">{{star_name}}</a></li>
       </ul>
   </body>
 </html>
