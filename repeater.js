@@ -38,7 +38,7 @@ var Repeater = (function(){
   };
 
   function bind(p, el, data){
-    if(typeof options.dataMainObj !== 'undefined' && options.dataMainObj !== ''){
+    if(options.dataMainObj !== undefined && options.dataMainObj !== null  && options.dataMainObj !== ''){
       data = data[options.dataMainObj];
     }
 
