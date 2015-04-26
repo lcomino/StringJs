@@ -6,7 +6,7 @@ var Repeater = (function(){
     sourceIdentifier : 'data-remote-source',
     sourceMainObject : 'data-repeat',
     dataMainObject : ''
-  }
+  };
 
   Repeater.init = function(obj, data){
     "use strict";
@@ -38,12 +38,12 @@ var Repeater = (function(){
   };
 
   function bind(p, el, data){
-    if(options.dataMainObj != undefined && options.dataMainObj != ''){
+    if(typeof options.dataMainObj !== 'undefined' && options.dataMainObj !== ''){
       data = data[options.dataMainObj];
     }
 
     el.removeAttribute(options.sourceIdentifier);
-    if(options.dataMainObj != undefined)
+    if(typeof options.dataMainObj !== 'undefined')
       el.removeAttribute(options.sourceMainObject);
 
     var result = String.bind(el.outerHTML, data);
@@ -58,7 +58,7 @@ var Repeater = (function(){
     var data = '';
 
     var req = new XMLHttpRequest();
-    
+
     req.open('GET', url);
 
     req.addEventListener("progress", function(){
@@ -68,7 +68,7 @@ var Repeater = (function(){
     req.onload = function(){
       data = JSON.parse(this.responseText);
       bind(p, el, data);
-    }
+    };
 
     req.send();
   }

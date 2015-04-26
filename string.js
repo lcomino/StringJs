@@ -16,11 +16,12 @@ var String = (function(){
     "use strict";
     var s = arguments[0];
   	var a = arguments[1];
+    var k = 0;
   	var owner = arguments[2];
 
     if(Object.prototype.toString.call(a) === '[object Array]'){
         var newS = '';
-        for(var k = 0; k < a.length; k++){
+        for(k = 0; k < a.length; k++){
           var o = a[k];
           newS += String.bind(s, o);
         }
@@ -30,7 +31,7 @@ var String = (function(){
   	if(Object.prototype.toString.call(a) === '[object Object]'){
 
       for(var key in a){
-  			var k = key;
+  			k = key;
 
   			if(owner !== undefined){
   				key = String.format("{0}.{1}", owner, key);
@@ -54,19 +55,19 @@ var String = (function(){
   };
 
   String.timeToDate = function(strData){
-      "use strict";
+    "use strict";
   	return new Date(parseInt(strData.match(/[-0-9]/g, '').join('')));
   };
 
   String.toDate = function(strData){
-      "use strict";
+    "use strict";
   	var split = strData.split('/');
   	return String.format("{0}-{1}-{2}", split[1], split[0], split[2]);
   	//return new Date(strData).getTime();
   };
 
   String.timeToLocateDateString = function(strTime){
-      "use strict";
+    "use strict";
   	var date = String.timeToDate(strTime);
 
   	date = date.toLocaleDateString();
@@ -103,7 +104,7 @@ var String = (function(){
 
     return newText.join(' ');
 
-  }
+  };
 
   return String;
 }());
