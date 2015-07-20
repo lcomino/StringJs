@@ -1,0 +1,22 @@
+{
+  "name": "StringJs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lcomino/StringJs",
+  "description": "Manipulando Strings com JS",
+  "main": "string.js",
+  "keywords": [
+    "string",
+    "javascript"
+  ],
+  "authors": [
+    "@lcomino"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
