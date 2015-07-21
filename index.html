@@ -6,10 +6,12 @@
     <script src="module.js"></script>
     <script src="string.js"></script>
     <script src="repeater.js"></script>
+    <script src="filter.js"></script>
     <script src="main.js"></script>
   </head>
   <body>
       <h2 class="">Vistorias</h2>
+      <input type="text" name="nome" id="nome" class="form-control filter" placeholder="Filtre pelo nome" data-filter="nome"/>
       <table class="table table-hover">
           <thead>
             <tr>
@@ -25,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="repeater" data-remote-source="data1.json">
+            <tr class="repeater">
               <td>
                 <a href="{{id}}">{{nome}}</a>
               </td>
@@ -37,6 +39,6 @@
               </td>
             </tr>
           </tbody>
-      </table>      
+      </table>
   </body>
 </html>

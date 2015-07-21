@@ -1,4 +1,4 @@
-var Repeater = (function(){
+var Repeater = (function () {
   var Repeater = {};
 
   var options = {
@@ -7,23 +7,25 @@ var Repeater = (function(){
     sourceMainObject : 'data-repeat',
     dataMainObject : ''
   };
+  var i = 0;
 
-  Repeater.init = function(obj, data){
+  Repeater.init = function (obj, data) {
     "use strict";
 
-    var els = '';
+    var _els = '';
 
-    if(typeof obj === 'undefined')
-      els = document.querySelectorAll(options.repeaterIdentifier);
-    else
-      els = document.querySelectorAll(obj);
+    if (obj === 'undefined') {
+      _els = document.querySelectorAll(options.repeaterIdentifier);
+    } else {
+      _els = document.querySelectorAll(obj);
+    }
 
 
-    for(var i = 0; i < els.length; i++){
-      var el = els[i].cloneNode(true);
-      var p = els[i].parentNode;
+    for (i = 0; i < _els.length; i++){
+      var el = _els[i].cloneNode(true);
+      var p = _els[i].parentNode;
 
-      els[i].remove();
+      _els[i].remove();
 
       options.dataMainObj = el.getAttribute(options.sourceMainObject);
 
@@ -74,4 +76,4 @@ var Repeater = (function(){
   }
 
   return Repeater;
-}());
+})();
