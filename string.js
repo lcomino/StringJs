@@ -1,29 +1,28 @@
-var String = (function(){
+(function(String){
 
-  var String = {};
-
-  String.format = function () {
+  String.prototype.format = function () {
       "use strict";
-      var s = arguments[0];
-      for (var i = 0; i < arguments.length - 1; i++) {
+      var s = this.valueOf();
+      console.log(arguments);
+      for (var i = 0; i < arguments.length; i++) {
           var reg = new RegExp("\\{" + i + "\\}", "gm");
-          s = s.replace(reg, arguments[i + 1]);
+          s = s.replace(reg, arguments[i]);
       }
       return s;
   };
 
-  String.bind = function () {
+  String.prototype.bind = function () {
     "use strict";
-    var s = arguments[0];
-  	var a = arguments[1];
+    var s = this.valueOf();
+  	var a = arguments[0];
     var k = 0;
-  	var owner = arguments[2];
+  	var owner = arguments[1];
 
     if(Object.prototype.toString.call(a) === '[object Array]'){
         var newS = '';
         for(k = 0; k < a.length; k++){
           var o = a[k];
-          newS += String.bind(s, o);
+          newS += newS.bind(s, o);
         }
         s = newS;
     }
@@ -34,10 +33,10 @@ var String = (function(){
   			k = key;
 
   			if(owner !== undefined){
-  				key = String.format("{0}.{1}", owner, key);
+  				key = "{0}.{1}".format(owner, key);
   			}
 
-  			s = String.bind(s, a[k], key);
+  			s = s.bind(a[k], key);
 
   			var reg = new RegExp("\\{{" + key + "\\}}", "gm");
   			s = s.replace(reg, a[k]);
@@ -48,28 +47,30 @@ var String = (function(){
       return s;
   };
 
-  String.isDate = function(strData){
+  String.prototype.isDate = function(){
       "use strict";
   	var pattern = /[-0-9]/g;
-  	return pattern.test(strData);
+  	return pattern.test(this.valueOf());
   };
 
-  String.timeToDate = function(strData){
+  String.prototype.timeToDate = function(){
     "use strict";
+    var strData = this.valueOf();
   	return new Date(parseInt(strData.match(/[-0-9]/g, '').join('')));
   };
 
-  String.toDate = function(strData){
+  String.prototype.toDate = function(strData){
     "use strict";
-  	var split = strData.split('/');
-  	return String.format("{0}-{1}-{2}", split[1], split[0], split[2]);
+    var strData = this.valueOf(),
+  	    split = strData.split('/');
+  	return "{0}-{1}-{2}".format(split[1], split[0], split[2]);
   	//return new Date(strData).getTime();
   };
 
-  String.timeToLocateDateString = function(strTime){
+  String.prototype.timeToLocateDateString = function(){
     "use strict";
+    var strTime = this.valueOf();
   	var date = String.timeToDate(strTime);
-
   	date = date.toLocaleDateString();
 
   	if(date == '02/01/1'){
@@ -79,13 +80,13 @@ var String = (function(){
   	return date;
   };
 
-  String.capitalize = function(string){
+  String.prototype.capitalize = function(string){
     "use strict";
     string = string.toLowerCase();
-    return String.format("{0}{1}" , string[0].toUpperCase(), string.slice(1));
+    return "{0}{1}".format(string[0].toUpperCase(), string.slice(1));
   };
 
-  String.capitalizeSentence = function(sentence, split){
+  String.prototype.capitalizeSentence = function(sentence, split){
     "use strict";
     split = split || ' ';
     var sentenceSplited = sentence.split(split),
@@ -99,12 +100,9 @@ var String = (function(){
       }else{
         newText.push(word.toLowerCase());
       }
-
     }
-
     return newText.join(' ');
 
   };
 
-  return String;
-}());
+})(String);
