@@ -12,6 +12,7 @@
   };
 
   String.prototype.bind = function () {
+    debugger;
     "use strict";
     var s = this.valueOf();
   	var a = arguments[0];
@@ -22,20 +23,20 @@
         var newS = '';
         for(k = 0; k < a.length; k++){
           var o = a[k];
-          newS += newS.bind(s, o);
+          newS += newS.bind(o);
         }
         s = newS;
     }
 
-  	if(Object.prototype.toString.call(a) === '[object Object]'){
-
+  	if(Object.prototype.toString.call(a) === '[object Object]'){  
+      debugger;    
       for(var key in a){
   			k = key;
 
   			if(owner !== undefined){
   				key = "{0}.{1}".format(owner, key);
   			}
-
+        
   			s = s.bind(a[k], key);
 
   			var reg = new RegExp("\\{{" + key + "\\}}", "gm");
