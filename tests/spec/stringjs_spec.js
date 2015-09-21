@@ -29,16 +29,33 @@ describe("String Bind", function(){
     expect("Hello World".bind()).toEqual("Hello World");
   });
 
-  it("should returns formated string with only one parameter", function(){    
-    var data = {data : 'World'};    
+  it("should returns formated string with only one parameter", function(){
+    var data = {data : 'World'};
     expect("Hello {{data}}".bind(data)).toEqual("Hello World");
   });
 
-  /*it("should returns formated string with array of objects", function(){    
+  it("should returns an array with formated strings", function(){
     var list = [];
-    var data = {data : 'World'};    
+    var data = {data : 'World'};
+    var data1 = {data : 'JS'};
+
     list.push(data);
+    list.push(data1);
+
+    expect("Hello {{data}}".bind(list)).toEqual(['Hello World', 'Hello JS']);
+  });
+});
+
+describe("String Repeat", function(){
+
+  it("should returns an array with formated strings", function(){
+    var list = [];
+    var data = {data : 'World'};
+    var data1 = {data : 'JS'};
+
     list.push(data);
-    expect("Hello {{data}}".bind(data)).toEqual("Hello WorldHello World");
-  });*/
+    list.push(data1);
+
+    expect("Hello {{data}}".repeat(list)).toEqual(['Hello World', 'Hello JS']);
+  });
 });

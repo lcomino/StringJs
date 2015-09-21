@@ -1,6 +1,6 @@
 {
   "name": "StringJs",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "homepage": "https://github.com/lcomino/StringJs",
   "description": "Manipulando Strings com JS",
   "main": "string.js",

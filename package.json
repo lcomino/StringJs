@@ -1,0 +1,40 @@
+{
+  "name": "stringjs",
+  "version": "1.0.0",
+  "description": "Manipulando Strings no javascript de maneira elegante",
+  "main": "string.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "gulp-uglify": "^1.4.1",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcomino/StringJS.git"
+  },
+  "keywords": [
+    "string",
+    "object",
+    "to",
+    "string",
+    "string",
+    "format",
+    "javascript"
+  ],
+  "author": "@lcomino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcomino/StringJS/issues"
+  },
+  "homepage": "https://github.com/lcomino/StringJS#readme"
+}

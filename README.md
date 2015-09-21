@@ -1,7 +1,9 @@
 StringJs
 ========
 
-Formatando strings de maneira elegante.
+Library simples para manipulação de Strings com Javascript.
+
+Versão atual? 1.0.0, utilizando o SemVer.
 
 ## Instalando com Bower
 
@@ -27,9 +29,9 @@ bower install StringJs
     };
 
   var mensagem = "{0}, {1}".format(dados.nome, dados.github.url);
-  
+
   //ou asssim
-  
+
   var mensagem = "{nome}, {github.url}".bind(dados);
 </script>
 ```
